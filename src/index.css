@@ -11,5 +11,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1{
+  @apply text-xl
+}
+
 
 

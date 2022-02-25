@@ -4,10 +4,10 @@ import { Toggle } from "../../atoms";
 
 function Navbar() {
   return (
-    <div className="">
-      <div className="container flex justify-between items-center mx-auto p-4">
+    <div className="border border-b-gray-100">
+      <div className="container flex justify-between items-center mx-auto p-4 px-20">
         <div className="nav-brand">
-          <h5>Where in the world?</h5>
+          <h1 className="font-bold">Where in the world?</h1>
         </div>
 
         <Toggle />

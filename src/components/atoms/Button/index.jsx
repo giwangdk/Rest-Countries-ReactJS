@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 function Button({ label, onClick }) {
   return (
     <button
-      className="px-4 py-1 text-sm border border-slate-300 text-slate-500 rounded shadow shadow-slate-500/40"
+      className="px-4 py-1 text-sm border border-gray-300 text-gray-500 rounded shadow shadow-gray-500/40"
       onClick={onClick}
     >
       {label}
