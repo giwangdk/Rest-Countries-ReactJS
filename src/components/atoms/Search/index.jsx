@@ -5,11 +5,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Search() {
   return (
-    <div>
-      <form>
-        <FontAwesomeIcon icon={["fab", "microsoft"]} />
-        <input type="text" name="" id="" />
-      </form>
+    <div className="bg-white shadow shadow-slate-500  w-80 rounded px-3 py-1">
+      <div>
+        <FontAwesomeIcon icon={["fas", "coffee"]} />
+      </div>
+      <input
+        type="text"
+        name=""
+        id=""
+        className="  outline-slate-100 py-1 px-2 w-full"
+      />
     </div>
   );
 }
