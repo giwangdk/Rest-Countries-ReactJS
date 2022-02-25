@@ -8,7 +8,7 @@ function Toggle() {
   return (
     <div className="flex items-center">
       <FontAwesomeIcon icon={faMoon} color="gray" />
-      <p>Dark Mode</p>
+      <p className="ml-2">Dark Mode</p>
     </div>
   );
 }
