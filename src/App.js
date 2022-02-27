@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
-import { Button, Navbar, Search } from './components';
+import {
+  Button, CardCountry, Navbar, Search,
+} from './components';
 
 function App() {
   return (
@@ -8,6 +10,7 @@ function App() {
       <Navbar />
       <Button>Hai</Button>
       <Search />
+      <CardCountry />
     </div>
   );
 }
