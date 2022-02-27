@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {
-  Button, CardCountry, Navbar, Search,
+  Button, CardCountry, DropDown, Navbar, Search,
 } from './components';
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
       <Navbar />
       <Button>Hai</Button>
       <Search />
+      <DropDown />
       <CardCountry />
     </div>
   );
