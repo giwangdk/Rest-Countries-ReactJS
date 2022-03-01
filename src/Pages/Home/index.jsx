@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-unused-vars */
 /* eslint-disable quotes */
@@ -30,6 +31,10 @@ function Home() {
 
   const searchCountry = (country) => {
     fetchData(country);
+  };
+
+  const filterByRegion = (region) => {
+    fetchData(region);
   };
 
   useEffect(() => {
