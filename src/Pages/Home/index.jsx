@@ -1,17 +1,23 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable no-unused-vars */
 /* eslint-disable quotes */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ListCountry } from "../../components/organisms";
+import { DropDown } from "../../components";
 
 function Home() {
   const [data, setData] = useState(0);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const fetchData = async () => {
+  const fetchData = async (name, region) => {
     try {
-      const response = await axios.get("https://restcountries.com/v3.1/all");
+      const response = await axios.get(
+        `https://restcountries.com/v3.1/${
+          name ? `name/${name}` : region ? `region/${region}` : "all"
+        }`
+      );
       setLoading(false);
       console.log(response.data);
       setData(response.data);
@@ -26,7 +32,12 @@ function Home() {
     fetchData();
   }, []);
 
-  return <ListCountry />;
+  return (
+    <>
+      <DropDown />
+      <ListCountry />
+    </>
+  );
 }
 
 export default Home;
