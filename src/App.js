@@ -3,6 +3,7 @@ import './App.css';
 import {
   Button, CardCountry, DropDown, Navbar, Search,
 } from './components';
+import Home from './Pages/Home';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Search />
       <DropDown />
       <CardCountry />
+      <Home />
     </div>
   );
 }

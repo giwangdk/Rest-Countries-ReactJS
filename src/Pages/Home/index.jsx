@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable quotes */
 import React, { useEffect, useState } from "react";
-import { ListCountry } from "../../components/organisms";
 import axios from "axios";
+import { ListCountry } from "../../components/organisms";
 
 function Home() {
   const [data, setData] = useState(0);
@@ -10,16 +11,22 @@ function Home() {
 
   const fetchData = async () => {
     try {
-      const response = await axios("https://restcountries.com/v3.1/all");
-      setLoading();
+      const response = await axios.get("https://restcountries.com/v3.1/all");
+      setLoading(false);
+      console.log(response.data);
+      setData(response.data);
     } catch (e) {
       console.log(e);
+      setLoading(false);
+      setError(true);
     }
   };
 
-  useEffect;
-  return;
-  <ListCountry />;
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return <ListCountry />;
 }
 
 export default Home;
