@@ -28,6 +28,10 @@ function Home() {
     }
   };
 
+  const searchCountry = (country) => {
+    fetchData(country);
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
