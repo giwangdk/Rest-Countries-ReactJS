@@ -5,7 +5,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ListCountry } from "../../components/organisms";
-import { DropDown } from "../../components";
+import { DropDown, Search } from "../../components";
 
 function Home() {
   const [data, setData] = useState(0);
@@ -43,7 +43,8 @@ function Home() {
 
   return (
     <>
-      <DropDown />
+      <Search action={searchCountry} />
+      <DropDown action={filterByRegion} />
       <ListCountry />
     </>
   );
