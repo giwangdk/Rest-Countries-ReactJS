@@ -7,7 +7,7 @@ import { CardCountry } from "../../molecules";
 
 function ListCountry({ data }) {
   return (
-    <div>
+    <div className="grid grid-cols-4 gap-4">
       {data?.map((country, i) => (
         <CardCountry country={country} key={i} />
       ))}
