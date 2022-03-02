@@ -1,8 +1,20 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable quotes */
 import React, { useState } from "react";
 
-function DropDown() {
+const region = ["africa", "americas", "asia", "europe", "oceania"];
+
+function DropDown({ action }) {
   const [show, setShow] = useState(false);
+
+  const handleClick = (e, regional) => {
+    e.preventDefault();
+    action(regional);
+  };
+
   return (
     <div className="relative inline-block text-left">
       <div>
@@ -42,15 +54,17 @@ function DropDown() {
           tabIndex="-1"
         >
           <ul className="py-1" role="none">
-            <li href="#" className="text-gray-700 block px-4 py-2 text-sm">
-              Edit
-            </li>
-            <li href="#" className="text-gray-700 block px-4 py-2 text-sm">
-              Duplicate
-            </li>
-            <li href="#" className="text-gray-700 block px-4 py-2 text-sm">
-              Archive
-            </li>
+            {region?.map((reg, i) => (
+              <li
+                key={i}
+                className="text-gray-700 block px-4 py-2 text-sm"
+                onClick={() => {
+                  handleClick(reg);
+                }}
+              >
+                {reg}
+              </li>
+            ))}
           </ul>
         </div>
       ) : (
