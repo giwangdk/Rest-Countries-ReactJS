@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable comma-dangle */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-unused-vars */
@@ -45,7 +46,7 @@ function Home() {
     <>
       <Search action={searchCountry} />
       <DropDown action={filterByRegion} />
-      <ListCountry />
+      <ListCountry data={data} />
     </>
   );
 }
