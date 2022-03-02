@@ -9,7 +9,7 @@ import { ListCountry } from "../../components/organisms";
 import { DropDown, Search } from "../../components";
 
 function Home() {
-  const [data, setData] = useState(0);
+  const [data, setData] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -24,7 +24,7 @@ function Home() {
       console.log(response.data);
       setData(response.data);
     } catch (e) {
-      console.log(e);
+      console.log("error", e);
       setLoading(false);
       setError(true);
     }
