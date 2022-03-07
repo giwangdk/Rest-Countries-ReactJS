@@ -5,13 +5,12 @@
 /* eslint-disable quotes */
 import React, { useState } from "react";
 
-const region = ["africa", "americas", "asia", "europe", "oceania"];
+const region = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
 function DropDown({ action }) {
   const [show, setShow] = useState(false);
 
-  const handleClick = (e, regional) => {
-    e.preventDefault();
+  const handleClick = (regional) => {
     action(regional);
   };
 
@@ -57,9 +56,9 @@ function DropDown({ action }) {
             {region?.map((reg, i) => (
               <li
                 key={i}
-                className="text-gray-700 block px-4 py-2 text-sm"
+                className="text-gray-700 block px-4 py-2 text-sm cursor-pointer hover:bg-gray-200"
                 onClick={() => {
-                  handleClick(reg);
+                  handleClick(reg.toLowerCase());
                 }}
               >
                 {reg}

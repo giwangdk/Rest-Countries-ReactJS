@@ -13,12 +13,10 @@ function Home() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const fetchData = async (name, region) => {
+  const fetchData = async (params) => {
     try {
       const response = await axios.get(
-        `https://restcountries.com/v3.1/${
-          name ? `name/${name}` : region ? `region/${region}` : "all"
-        }`
+        `https://restcountries.com/v3.1/${params}`
       );
       setLoading(false);
       console.log(response.data);
@@ -30,16 +28,16 @@ function Home() {
     }
   };
 
-  const searchCountry = (country) => {
-    fetchData(country);
+  const searchCountry = (name) => {
+    fetchData(`name/${name}`);
   };
 
   const filterByRegion = (region) => {
-    fetchData(region);
+    fetchData(`region/${region}`);
   };
 
   useEffect(() => {
-    fetchData();
+    fetchData("all");
   }, []);
 
   return (
