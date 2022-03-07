@@ -15,6 +15,7 @@ function Home() {
 
   const fetchData = async (params) => {
     try {
+      setLoading(true);
       const response = await axios.get(
         `https://restcountries.com/v3.1/${params}`
       );
@@ -46,7 +47,13 @@ function Home() {
         <Search action={searchCountry} />
         <DropDown action={filterByRegion} />
       </div>
-      <ListCountry data={data} />
+      {error ? (
+        <p>{error}</p>
+      ) : loading ? (
+        <p>Loading...</p>
+      ) : (
+        <ListCountry data={data} />
+      )}
     </>
   );
 }
