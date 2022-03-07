@@ -7,15 +7,17 @@ import {
 } from 'react-router-dom';
 // import { Navbar } from './components';
 import Home from './Pages/Home';
+import Layout from './components/Layout';
 
 function App() {
   return (
-
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
+    <Layout>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+    </Layout>
   );
 }
 
