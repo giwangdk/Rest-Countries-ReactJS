@@ -42,8 +42,10 @@ function Home() {
 
   return (
     <>
-      <Search action={searchCountry} />
-      <DropDown action={filterByRegion} />
+      <div className="flex justify-between my-10">
+        <Search action={searchCountry} />
+        <DropDown action={filterByRegion} />
+      </div>
       <ListCountry data={data} />
     </>
   );
