@@ -1,12 +1,7 @@
 /* eslint-disable import/prefer-default-export */
-import { useState } from 'react';
 import axios from 'axios';
 
-const [data, setData] = useState(null);
-const [error, setError] = useState(false);
-const [loading, setLoading] = useState(false);
-
-export const fetchData = async (params) => {
+export const fetchData = async (setLoading, setError, setData, params) => {
   try {
     setLoading(true);
     const response = await axios.get(
@@ -20,6 +15,4 @@ export const fetchData = async (params) => {
     setLoading(false);
     setError(true);
   }
-
-  return { error, data, loading };
 };

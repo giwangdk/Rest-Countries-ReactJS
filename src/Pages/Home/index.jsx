@@ -7,18 +7,23 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ListCountry } from "../../components/organisms";
 import { DropDown, Search } from "../../components";
+import { fetchData } from "../../utils/fetchData";
 
 function Home() {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const searchCountry = (name) => {
-    fetchData(`name/${name}`);
+    fetchData(setLoading, setError, setData, `name/${name}`);
   };
 
   const filterByRegion = (region) => {
-    fetchData(`region/${region}`);
+    fetchData(setLoading, setError, setData, `region/${region}`);
   };
 
   useEffect(() => {
-    fetchData("all");
+    fetchData(setLoading, setError, setData, "all");
   }, []);
 
   return (
