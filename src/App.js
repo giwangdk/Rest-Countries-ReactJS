@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 // import { Navbar } from './components';
 import Home from './Pages/Home';
+import Detail from './Pages/Detail';
 import Layout from './components/Layout';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/detail/:slug" element={<Detail />} />
         </Routes>
       </BrowserRouter>
     </Layout>
