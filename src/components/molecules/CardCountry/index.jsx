@@ -5,9 +5,9 @@ import React from "react";
 
 function CardCountry({ country }) {
   return (
-    <div className="card border shadow shadow-gray-300">
+    <div className="card border rounded-md shadow shadow-gray-300">
       <div className="card-img">
-        <img src={country?.flags?.png} alt="" />
+        <img src={country?.flags?.png} className="rounded-t-md" alt="" />
       </div>
       <div className="card-body text-left p-3 ">
         <div className="card-title mb-3">
