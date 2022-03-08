@@ -9,26 +9,6 @@ import { ListCountry } from "../../components/organisms";
 import { DropDown, Search } from "../../components";
 
 function Home() {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const fetchData = async (params) => {
-    try {
-      setLoading(true);
-      const response = await axios.get(
-        `https://restcountries.com/v3.1/${params}`
-      );
-      setLoading(false);
-      console.log(response.data);
-      setData(response.data);
-    } catch (e) {
-      console.log("error", e);
-      setLoading(false);
-      setError(true);
-    }
-  };
-
   const searchCountry = (name) => {
     fetchData(`name/${name}`);
   };
