@@ -20,14 +20,16 @@ function Detail() {
   return (
     <>
       <Button label="Back" />
-      <div className="flex">
-        <img src="/" alt="" />
-        <div className="description">
-          <h2>Belgium</h2>
-          <DescriptionBody />
-          <BorderCountries />
+      {data?.map((country) => (
+        <div className="flex">
+          <img src={country?.flags?.png} alt="" />
+          <div className="description">
+            <h2>{country?.name?.official}</h2>
+            <DescriptionBody country={country} />
+            <BorderCountries />
+          </div>
         </div>
-      </div>
+      ))}
     </>
   );
 }
