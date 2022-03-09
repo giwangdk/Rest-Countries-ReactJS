@@ -29,7 +29,7 @@ function Detail() {
           <div className="description w-1/2 ml-4">
             <h2 className="text-3xl font-bold">{country?.name?.official}</h2>
             <DescriptionBody country={country} />
-            <BorderCountries />
+            <BorderCountries borders={country?.borders} />
           </div>
         </div>
       ))}
