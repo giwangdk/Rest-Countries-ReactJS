@@ -4,41 +4,41 @@ import React from "react";
 
 function DescriptionBody({ country }) {
   return (
-    <div className="description-body flex justify-between w-100">
+    <div className="description-body flex justify-between  mb-8 mt-5 leading-7">
       <div className="body-left">
         <p>
-          Native Name :
+          <b>Native Name: </b>
           {country?.name?.common}
         </p>
         <p>
-          Region :
+          <b>Region: </b>
           {' '}
           {country?.region}
         </p>
         <p>
-          Top Level Domain :
+          <b>Top Level Domain: </b>
           {' '}
           {country?.tld[0]}
         </p>
         <p>
-          Languages :
+          <b>Languages: </b>
           {' '}
           {country?.languages?.spa}
           {' '}
         </p>
         <p>
-          Capital :
+          <b>Capital:  </b>
           {country?.capital[0]}
         </p>
       </div>
       <div className="body-right">
         <p>
-          Population :
+          <b>Population: </b>
           {country?.population}
         </p>
-        <p>Sub region : </p>
+        <p><b>Sub region: </b></p>
         <p>
-          Currencies :
+          <b>Currencies: </b>
           {' '}
           {country?.currencies?.PEN?.name}
           ,

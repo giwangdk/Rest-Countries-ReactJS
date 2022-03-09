@@ -27,7 +27,7 @@ function Detail() {
 
           </div>
           <div className="description w-1/2 ml-4">
-            <h2 className="text-xl font-bold">{country?.name?.official}</h2>
+            <h2 className="text-3xl font-bold">{country?.name?.official}</h2>
             <DescriptionBody country={country} />
             <BorderCountries />
           </div>
