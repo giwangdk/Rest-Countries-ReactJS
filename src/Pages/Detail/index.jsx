@@ -19,12 +19,15 @@ function Detail() {
 
   return (
     <>
-      <Button label="Back" />
+      <Button label="Back" className="my-5" />
       {data?.map((country) => (
-        <div className="flex">
-          <img src={country?.flags?.png} alt="" />
-          <div className="description">
-            <h2>{country?.name?.official}</h2>
+        <div className="flex justify-between mt-5 items-center">
+          <div className="image-flag w-96">
+            <img src={country?.flags?.png} style={{ width: '100%', objectFit: 'contain', backgroundSize: 'cover' }} alt={country?.name?.official} />
+
+          </div>
+          <div className="description w-1/2 ml-4">
+            <h2 className="text-xl font-bold">{country?.name?.official}</h2>
             <DescriptionBody country={country} />
             <BorderCountries />
           </div>

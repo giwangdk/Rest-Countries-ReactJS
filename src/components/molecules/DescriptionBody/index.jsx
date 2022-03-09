@@ -4,7 +4,7 @@ import React from "react";
 
 function DescriptionBody({ country }) {
   return (
-    <div className="description-body flex justify-between">
+    <div className="description-body flex justify-between w-100">
       <div className="body-left">
         <p>
           Native Name :
@@ -37,7 +37,15 @@ function DescriptionBody({ country }) {
           {country?.population}
         </p>
         <p>Sub region : </p>
-        <p>Currencies :  </p>
+        <p>
+          Currencies :
+          {' '}
+          {country?.currencies?.PEN?.name}
+          ,
+          {' '}
+          {country?.currencies?.PEN?.symbol}
+          {' '}
+        </p>
       </div>
     </div>
   );
