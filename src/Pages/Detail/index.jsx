@@ -8,14 +8,24 @@ import { fetchData } from "../../utils/fetchData";
 
 function Detail() {
   const [data, setData] = useState(null);
+  const [countries, setCountries] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const getCountryByCodes = (codes) => {
+    fetchData(setLoading, setError, setCountries, `alpha?codes=${codes}`);
+  };
   useEffect(() => {
-    fetchData(setLoading, setError, setData, `alpha/per`);
+    fetchData(setLoading, setError, setData, `alpha/per`)
+      .then(() => {
+        const arrCountries = data[0]?.borders;
+        getCountryByCodes(arrCountries.toString().toLowerCase());
+        console.log("boooo", arrCountries.toString().toLowerCase());
+      });
   }, []);
 
   console.log("detail", data);
+  console.log("countries", countries);
 
   return (
     <>
@@ -29,7 +39,7 @@ function Detail() {
           <div className="description w-1/2 ml-4">
             <h2 className="text-3xl font-bold">{country?.name?.official}</h2>
             <DescriptionBody country={country} />
-            <BorderCountries borders={country?.borders} />
+            <BorderCountries borders={countries} />
           </div>
         </div>
       ))}

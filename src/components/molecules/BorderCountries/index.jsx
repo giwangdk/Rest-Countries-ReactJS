@@ -10,7 +10,7 @@ function BorderCountries({ borders }) {
       <div className="border-group flex justify-between">
         {
           borders?.map((border) => (
-            <Button label={border} className="mr-3" />
+            <Button label={border.name} className="mr-3" />
           ))
         }
       </div>
