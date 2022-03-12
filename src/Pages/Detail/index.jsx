@@ -33,11 +33,10 @@ function Detail() {
 
   useEffect(async () => {
     fetchDatas(`alpha/per`).then((res) => {
-      console.log(res);
       setData(res.data);
-      const arrCountries = res.data[0]?.borders;
+      const arrCountries = res?.data[0].borders;
       fetchDatas(`alpha?codes=${arrCountries.toString().toLowerCase()}`).then((country) => {
-        setCountries(country.data);
+        setCountries(country?.data);
       });
     });
   }, []);
