@@ -1,6 +1,9 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable quotes */
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import Button from "../../components/atoms/Button";
 import BorderCountries from "../../components/molecules/BorderCountries";
 import DescriptionBody from "../../components/molecules/DescriptionBody";
@@ -12,16 +15,31 @@ function Detail() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const getCountryByCodes = (codes) => {
-    fetchData(setLoading, setError, setCountries, `alpha?codes=${codes}`);
+  const fetchDatas = async (params) => {
+    try {
+      setLoading(true);
+      const response = await axios.get(
+        `https://restcountries.com/v3.1/${params}`,
+      );
+      setLoading(false);
+      console.log(response.data);
+      return (response);
+    } catch (e) {
+      console.log('error', e);
+      setLoading(false);
+      setError(true);
+    }
   };
-  useEffect(() => {
-    fetchData(setLoading, setError, setData, `alpha/per`)
-      .then(() => {
-        const arrCountries = data[0]?.borders;
-        getCountryByCodes(arrCountries.toString().toLowerCase());
-        console.log("boooo", arrCountries.toString().toLowerCase());
+
+  useEffect(async () => {
+    fetchDatas(`alpha/per`).then((res) => {
+      console.log(res);
+      setData(res.data);
+      const arrCountries = res.data[0]?.borders;
+      fetchDatas(`alpha?codes=${arrCountries.toString().toLowerCase()}`).then((country) => {
+        setCountries(country.data);
       });
+    });
   }, []);
 
   console.log("detail", data);
