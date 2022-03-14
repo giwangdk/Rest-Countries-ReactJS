@@ -1,11 +1,20 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable quotes */
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
 function CardCountry({ country }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/detail/${country?.cca3.toLowerCase()}`);
+  };
+
   return (
-    <div className="card border rounded-md shadow shadow-gray-300">
+    <div className="card border rounded-md shadow shadow-gray-300" onClick={handleClick}>
       <div className="card-img">
         <img src={country?.flags?.png} className="rounded-t-md" alt="" />
       </div>
