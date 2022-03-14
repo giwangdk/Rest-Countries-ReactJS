@@ -4,6 +4,7 @@
 /* eslint-disable quotes */
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import Button from "../../components/atoms/Button";
 import BorderCountries from "../../components/molecules/BorderCountries";
 import DescriptionBody from "../../components/molecules/DescriptionBody";
@@ -14,6 +15,9 @@ function Detail() {
   const [countries, setCountries] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const { slug } = useParams();
+  console.log("slug", slug);
 
   const fetchDatas = async (params) => {
     try {
@@ -32,7 +36,7 @@ function Detail() {
   };
 
   useEffect(() => {
-    fetchDatas(`alpha/per`).then((res) => {
+    fetchDatas(`alpha/${slug}`).then((res) => {
       setData(res.data);
       const arrCountries = res?.data[0].borders;
       fetchDatas(`alpha?codes=${arrCountries.toString().toLowerCase()}`).then((country) => {
