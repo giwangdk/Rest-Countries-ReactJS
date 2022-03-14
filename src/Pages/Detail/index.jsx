@@ -4,7 +4,7 @@
 /* eslint-disable quotes */
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Button from "../../components/atoms/Button";
 import BorderCountries from "../../components/molecules/BorderCountries";
 import DescriptionBody from "../../components/molecules/DescriptionBody";
@@ -17,6 +17,7 @@ function Detail() {
   const [loading, setLoading] = useState(false);
 
   const { slug } = useParams();
+  const navigate = useNavigate();
   console.log("slug", slug);
 
   const fetchDatas = async (params) => {
@@ -43,7 +44,11 @@ function Detail() {
         setCountries(country?.data);
       });
     });
-  }, []);
+  }, [slug]);
+
+  const handleClick = (border) => {
+    navigate(`/detail/${border}`);
+  };
 
   console.log("detail", data);
   console.log("countries", countries);
@@ -60,7 +65,7 @@ function Detail() {
           <div className="description w-1/2 ml-4">
             <h2 className="text-3xl font-bold">{country?.name?.official}</h2>
             <DescriptionBody country={country} />
-            <BorderCountries borders={countries} />
+            <BorderCountries borders={countries} action={handleClick} />
           </div>
         </div>
       ))}
