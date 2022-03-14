@@ -31,7 +31,7 @@ function Detail() {
     }
   };
 
-  useEffect(async () => {
+  useEffect(() => {
     fetchDatas(`alpha/per`).then((res) => {
       setData(res.data);
       const arrCountries = res?.data[0].borders;

@@ -4,13 +4,14 @@ import React from "react";
 import Button from "../../atoms/Button";
 
 function BorderCountries({ borders }) {
+  console.log("borders", borders);
   return (
     <div className="border-countries flex justify-between">
       <p className="font-semibold">Border Countries : </p>
       <div className="border-group flex justify-between">
         {
           borders?.map((border) => (
-            <Button label={border?.name} className="mr-3" />
+            <Button label={border?.name?.common} className="mr-3" />
           ))
         }
       </div>
